@@ -128,5 +128,10 @@
     "id": "amethyst",
     "name": "Amethyst",
     "author": "OliviaTheVampire"
+  },
+  {
+    "id": "thing",
+    "name": "thing",
+    "author": "OliviaTheVampire"
   }
 ]
