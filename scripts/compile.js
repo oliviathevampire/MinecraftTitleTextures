@@ -90,13 +90,14 @@ for (const font of fonts) {
     
     const m = canvas.width / 1000
 
-    const thumbnail = new Canvas(font.width * 5 * m, font.height * m)
+    const thumbnailLetterCount = 5;
+
+    const thumbnail = new Canvas(font.width * thumbnailLetterCount * m, font.height * m)
     const ctx = thumbnail.getContext("2d")
-    copyLetter(width, depth, height, m, ctx, canvas, 1, 0);
-    copyLetter(width, depth, height, m, ctx, canvas, 2, 1);
-    copyLetter(width, depth, height, m, ctx, canvas, 3, 2);
-    copyLetter(width, depth, height, m, ctx, canvas, 4, 3);
-    copyLetter(width, depth, height, m, ctx, canvas, 5, 4);
+
+    for (let i = 0; i < thumbnailLetterCount; i++) {
+      copyLetter(width, depth, height, m, ctx, canvas, i+1, i);
+    }
 
     outline(thumbnail, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
 
