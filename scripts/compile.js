@@ -90,16 +90,32 @@ for (const font of fonts) {
     
     const m = canvas.width / 1000
 
-    const thumbnail = new Canvas(font.width * 3 * m, font.height * m)
+    const thumbnail = new Canvas(font.width * 5 * m, font.height * m)
     const ctx = thumbnail.getContext("2d")
-    ctx.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m, 2 * m, width * m, height * m)
-    ctx.drawImage(canvas, width * m * 2 + 4 * m, depth * m, width * m, height * m, 6 * m + width * m, 2 * m, width * m, height * m)
-    ctx.drawImage(canvas, width * m * 3 + 6 * m, depth * m, width * m, height * m, 10 * m + width * m * 2, 2 * m, width * m, height * m)
+    copyLetter(width, depth, height, m, ctx, canvas, 1, 0);
+    copyLetter(width, depth, height, m, ctx, canvas, 2, 1);
+    copyLetter(width, depth, height, m, ctx, canvas, 3, 2);
+    copyLetter(width, depth, height, m, ctx, canvas, 4, 3);
+    copyLetter(width, depth, height, m, ctx, canvas, 5, 4);
 
     outline(thumbnail, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
 
     thumbnail.saveAs(`temp/${font.id}/thumbnails/${file}`)
   }
+}
+
+function copyLetter(width, depth, height, m, target, source, sourceLetterIndex, targetLetterIndex) {
+  target.drawImage(
+    source,
+    /* source-x */ width * m * sourceLetterIndex + (sourceLetterIndex * 2) * m,
+    /* source-y */ depth * m,
+    /* source-w */ width * m,
+    /* source-h */ height * m,
+    /* target-x */ (2 + (4 * targetLetterIndex)) * m + (width * m * targetLetterIndex),
+    /* target-y */ 2 * m,
+    /* target-w */ width * m,
+    /* target-y */ height * m,
+  );
 }
 
 console.log("Compressing textures...")
