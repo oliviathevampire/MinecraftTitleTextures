@@ -115,6 +115,26 @@
     "author": "Ewan Howell"
   },
   {
+    "id": "inner_shadow",
+    "name": "Inner Shadow",
+    "author": "justwilly"
+  },
+  {
+    "id": "smoked",
+    "name": "Smoked",
+    "author": "justwilly"
+  },
+  {
+    "id": "wavey",
+    "name": "Wavey",
+    "author": "justwilly"
+  },
+  {
+    "id": "smooth_beveled",
+    "name": "Smooth Beveled",
+    "author": "justwilly"
+  },
+  {
     "id": "crimson_planks",
     "name": "Crimson Planks",
     "author": "TheAnnoying & OliviaTheVampire"
@@ -152,6 +172,16 @@
   {
     "id": "mycelium",
     "name": "Mycelium",
+    "author": "OliviaTheVampire"
+  },
+  {
+    "id": "crimson_nylium",
+    "name": "Crimson Nylium",
+    "author": "OliviaTheVampire"
+  },
+  {
+    "id": "warped_nylium",
+    "name": "Warped Nylium",
     "author": "OliviaTheVampire"
   }
 ]
