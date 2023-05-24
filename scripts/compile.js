@@ -13,6 +13,7 @@ const charMap = {
   lessthan: "<",
   openquote: "😩",
   questionmark: "?",
+  space: " ",
   start: "┫"
 }
 
@@ -99,11 +100,59 @@ for (const font of fonts) {
 
     for (let i = 0; i < thumbnailLetterCount; i++) {
       copyLetter(width, depth, height, m, ctx, canvas, i+1, i);
-    }
+    }  
 
     outline(thumbnail, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
 
     thumbnail.saveAs(`temp/${font.id}/thumbnails/${file}`)
+
+    let thumbnail2
+    if (font.autoBorder) {
+      if (font.forcedTerminators) {
+        thumbnail2 = new Canvas(font.width * 3 * m - 8 + font.forcedTerminators[4] * 2, font.height * m)
+      } else {
+        thumbnail2 = new Canvas(font.width * 3 * m - 8, font.height * m)
+      }
+    } else {
+      if (font.forcedTerminators) {
+        thumbnail2 = new Canvas(font.width * 3 * m + 8 + font.forcedTerminators[4] * 2, font.height * m)
+      } else {
+        thumbnail2 = new Canvas(font.width * 3 * m, font.height * m)
+      }
+    }
+    const ctx2 = thumbnail2.getContext("2d")
+    
+    if (font.autoBorder) {
+      if (font.forcedTerminators) {
+        const terminatorWidth = font.forcedTerminators[4] * m
+        ctx2.drawImage(canvas, font.forcedTerminators[0] * m, font.forcedTerminators[1] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
+        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * m + width * m + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * m + width * m * 2 + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, font.forcedTerminators[2] * m, font.forcedTerminators[3] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m + width * m * 3 + terminatorWidth, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
+      } else {
+        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * m + width * m, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * m + width * m * 2, 2 * m, width * m, height * m)
+      }
+    } else {
+      if (font.forcedTerminators) {
+        const terminatorWidth = font.forcedTerminators[4] * m
+        ctx2.drawImage(canvas, font.forcedTerminators[0] * m, font.forcedTerminators[1] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
+        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m * 3 + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * 5 * m + width * m + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * 7 * m + width * m * 2 + terminatorWidth, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, font.forcedTerminators[2] * m, font.forcedTerminators[3] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * 9 * m + width * m * 3 + terminatorWidth, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
+      } else {
+        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * 3 * m + width * m, 2 * m, width * m, height * m)
+        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * 5 * m + width * m * 2, 2 * m, width * m, height * m)
+      }
+    }
+
+    outline(thumbnail, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
+
+    thumbnail2.saveAs(`temp/${font.id}/thumbnails/${file}_2`)
   }
 }
 
@@ -133,6 +182,5 @@ compress_images("temp/**/*.png", "../fonts/", {
   { svg: { engine: false, command: false } },
   { gif: { engine: false, command: false } },
 (err, comp, stat) => {
-  console.log(stat)
   if (fs.existsSync(stat.path_out_new + ".bak")) fs.unlinkSync(stat.path_out_new + ".bak")
 })

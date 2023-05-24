@@ -12,5 +12,20 @@
       [132, 148, 194, 210]
     ],
     "terminatorSpace": true
+  },
+  {
+    "id": "minecraft-five-bold-block",
+    "name": "Minecraft Five Bold Block",
+    "author": "Ewan Howell",
+    "width": 40,
+    "height": 52,
+    "border": 246,
+    "ends": [
+      [0, 16, 64, 80], 
+      [82, 98, 146, 162],
+      [164, 180, 228, 244]
+    ],
+    "autoBorder": true,
+    "forcedTerminators": [310, 180, 318, 180, 6, 48]
   }
 ]
