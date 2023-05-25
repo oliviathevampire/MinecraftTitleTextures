@@ -1,6 +1,10 @@
 import { Canvas, loadImage, ImageData } from "skia-canvas"
 import compress_images from "compress-images"
+
 import fs from "node:fs"
+import path from 'node:path';
+
+fs.rmSync("temp", { recursive: true, force: true })
 
 const charMap = {
   asterisk: "*",
@@ -18,13 +22,16 @@ const charMap = {
 }
 
 const fonts = JSON.parse(fs.readFileSync("../fonts.json"))
-
 fonts.push({
   id: "minecraft-ten",
   width: 32,
   height: 44,
   border: 266,
-  ends: [[0, 22]]
+  ends: [
+    [0, 22, 62, 84],
+    [86, 108, 148, 170],
+    [172, 194, 234, 256]
+  ]
 })
 
 function outline(canvas, size, colour) {
@@ -61,7 +68,7 @@ function outline(canvas, size, colour) {
 
 for (const font of fonts) {
   const characters = {}
-
+  
   for (const file of fs.readdirSync(`../fonts/${font.id}/characters`)) {
     const char = charMap[file.slice(0, -5)] ?? file.slice(0, -5)
     characters[char] = JSON.parse(fs.readFileSync(`../fonts/${font.id}/characters/${file}`, "utf8")).elements
@@ -77,97 +84,123 @@ for (const font of fonts) {
   console.log(`Done ${font.id} characters`)
 
   fs.mkdirSync(`temp/${font.id}/textures`, { recursive: true })
+  fs.mkdirSync(`temp/${font.id}/overlays`, { recursive: true })
   fs.mkdirSync(`temp/${font.id}/thumbnails`, { recursive: true })
-  fs.mkdirSync(`temp/${font.id}/thumbnails_2`, { recursive: true })
 
-  const width = font.width - 4
-  const height = font.height - 4
-  const depth = font.ends[0][1]
+  let overlayBackground
+  const textures = fs.readdirSync(`../fonts/${font.id}/textures`).map(e => ["textures", e]).concat(fs.readdirSync(`../fonts/${font.id}/overlays`).map(e => ["overlays", e]))
+  for (const file of textures) {
+    if (file[1] === "overlay.png") continue
 
-  for (const file of fs.readdirSync(`../fonts/${font.id}/textures`)) {
-    const img = await loadImage(`../fonts/${font.id}/textures/${file}`)
+    const img = await loadImage(`../fonts/${font.id}/${file[0]}/${file[1]}`)
     
     const canvas = new Canvas(img.width, img.height)
     const context = canvas.getContext("2d")
     context.drawImage(img, 0, 0)
-    canvas.saveAs(`temp/${font.id}/textures/${file}`)
+    canvas.saveAs(`temp/${font.id}/${file[0]}/${file[1]}`)
     
-    const m = canvas.width / 1000
+    // const word = '┣Minecr😳ft┫'.toLowerCase();
+    const word = "abcde"
+    // let word;
+    // if (font.id === "minecraft-five-bold-block" ) word = "┣abcde┫";
+    // else word = 'abcde';
+    const thumbnailLetterCount = Array.from(word).length;
 
-    const thumbnailLetterCount = 5;
+    let x = 0;
+    let y = 0;
+    
+    const {chars, texture_base_width, letterSpacing, yOffset} = JSON.parse(fs.readFileSync(`../fonts/${font.id}/config.json`))
+    
+    const charData = Object.keys(characters)
+      .map((c) => {
+        const sizeData = characters[c][0];
+        const width = sizeData.to[0] - sizeData.from[0];
+        const row = chars.findIndex((rowChars) => rowChars.includes(c));
+        const height = font.ends[row][2] - font.ends[row][1];
+        
+        const col = [...chars[row]].indexOf(c);
+        return { character: c, width, height, row, col };
+      }).sort((a, b) => {
+        if (a.row === b.row) return a.col - b.col;
+        return a.row - b.row;
+      }).map((char) => {
+        if (y < char.row) {
+          y = char.row;
+          x = 0;
+        }
+        const pos = {
+          x,
+          y: font.ends[char.row][1],
+        };
+        x += char.width + 2;
+        return {
+          ...char,
+          ...pos,
+        };
+      });
 
-    const thumbnail = new Canvas(font.width * thumbnailLetterCount * m, font.height * m)
+    const textureScale = canvas.width / texture_base_width
+    const canvasWidth = [...word].reduce((sum, letter) => {
+      return sum + charData.find(data => data.character === letter).width + letterSpacing
+    }, 0);
+    const thumbnail = new Canvas(canvasWidth * textureScale, font.height * textureScale)
     const ctx = thumbnail.getContext("2d")
-
-    for (let i = 0; i < thumbnailLetterCount; i++) {
-      copyLetter(width, depth, height, m, ctx, canvas, i+1, i);
-    }  
-
-    outline(thumbnail, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
-
-    thumbnail.saveAs(`temp/${font.id}/thumbnails/${file}`)
-
-    let thumbnail2
-    if (font.autoBorder) {
-      if (font.forcedTerminators) {
-        thumbnail2 = new Canvas(font.width * 3 * m - 8 + font.forcedTerminators[4] * 2, font.height * m)
-      } else {
-        thumbnail2 = new Canvas(font.width * thumbnailLetterCount * m - 8, font.height * m)
-      }
-    } else {
-      if (font.forcedTerminators) {
-        thumbnail2 = new Canvas(font.width * 3 * m + 8 + font.forcedTerminators[4] * 2, font.height * m)
-      } else {
-        thumbnail2 = new Canvas(font.width * thumbnailLetterCount * m, font.height * m)
-      }
-    }
-    const ctx2 = thumbnail2.getContext("2d")
     
-    if (font.autoBorder) {
-      if (font.forcedTerminators) {
-        const terminatorWidth = font.forcedTerminators[4] * m
-        ctx2.drawImage(canvas, font.forcedTerminators[0] * m, font.forcedTerminators[1] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
-        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * m + width * m + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * m + width * m * 2 + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, font.forcedTerminators[2] * m, font.forcedTerminators[3] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m + width * m * 3 + terminatorWidth, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
-      } else {
-        for (let i = 0; i < thumbnailLetterCount; i++) {
-          copyLetter(width, depth, height, m, ctx2, canvas, i+1, i);
-        }  
-      }
-    } else {
-      if (font.forcedTerminators) {
-        const terminatorWidth = font.forcedTerminators[4] * m
-        ctx2.drawImage(canvas, font.forcedTerminators[0] * m, font.forcedTerminators[1] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * m, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
-        ctx2.drawImage(canvas, width * m + 2 * m, depth * m, width * m, height * m, 2 * m * 3 + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, width * m * 2 + 2 * 2 * m, depth * m, width * m, height * m, 2 * 5 * m + width * m + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, width * m * 3 + 2 * 3 * m, depth * m, width * m, height * m, 2 * 7 * m + width * m * 2 + terminatorWidth, 2 * m, width * m, height * m)
-        ctx2.drawImage(canvas, font.forcedTerminators[2] * m, font.forcedTerminators[3] * m, terminatorWidth, font.forcedTerminators[5] * m, 2 * 9 * m + width * m * 3 + terminatorWidth, 2 * m, terminatorWidth, font.forcedTerminators[5] * m)
-      } else {
-        for (let i = 0; i < thumbnailLetterCount; i++) {
-          copyLetter(width, depth, height, m, ctx2, canvas, i+1, i);
-        }  
-      }
+    // const yOffset = (font.height - (font.ends[0][2] - font.ends[0][1])) / 2;
+    let targetX = letterSpacing / 2;
+    for (let i = 0; i < thumbnailLetterCount; i++) {
+      const letter = Array.from(word)[i];
+      const letterData = charData.find(data => data.character === letter);
+      copyLetter(
+        ctx,
+        canvas,
+        letterData.x * textureScale, // sourcex
+        letterData.y * textureScale, // sourcey
+        letterData.width * textureScale, // sourcew
+        letterData.height * textureScale, // sourceh
+        targetX * textureScale, // targetx
+        (yOffset + (letterSpacing / 2)) * textureScale,
+      );
+      targetX += letterData.width + letterSpacing;
     }
 
-    outline(thumbnail2, 2 * m, context.getImageData(0, font.border * m, 1, 1).data)
+    if (file[0] === "textures") {
+      outline(thumbnail, 2 * textureScale, context.getImageData(0, font.border * textureScale, 1, 1).data)
+    } else {
+      ctx.globalCompositeOperation = "destination-over"
+      ctx.drawImage(overlayBackground, 0, 0, thumbnail.width, thumbnail.height)
+    }
 
-    thumbnail2.saveAs(`temp/${font.id}/thumbnails_2/${file}`)
+    thumbnail.saveAs(`temp/${font.id}/thumbnails/${file[1]}`)
+
+    if (file[1] === "flat.png") {
+      overlayBackground = new Canvas(thumbnail.width, thumbnail.height)
+      const overlayBackgroundCtx = overlayBackground.getContext("2d")
+      overlayBackgroundCtx.drawImage(thumbnail, 0, 0)
+      overlayBackgroundCtx.fillStyle = "rgb(0,0,0,0.25)"
+      overlayBackgroundCtx.globalCompositeOperation = "destination-in"
+      overlayBackgroundCtx.fillRect(0, 0, thumbnail.width, thumbnail.height)
+      overlayBackgroundCtx.globalCompositeOperation = "source-over"
+      overlayBackground.saveAs(`temp/${font.id}/thumbnails/none.png`)
+    }
   }
 }
 
-function copyLetter(width, depth, height, m, target, source, sourceLetterIndex, targetLetterIndex) {
+function copyLetter(
+  target, source,
+  sourceX, sourceY, sourceW, sourceH,
+  targetX, targetY,
+) {
   target.drawImage(
     source,
-    /* source-x */ width * m * sourceLetterIndex + (sourceLetterIndex * 2) * m,
-    /* source-y */ depth * m,
-    /* source-w */ width * m,
-    /* source-h */ height * m,
-    /* target-x */ (2 + (4 * targetLetterIndex)) * m + (width * m * targetLetterIndex),
-    /* target-y */ 2 * m,
-    /* target-w */ width * m,
-    /* target-y */ height * m,
+    /* source-x */ sourceX,
+    /* source-y */ sourceY,
+    /* source-w */ sourceW,
+    /* source-h */ sourceH,
+    /* target-x */ targetX,
+    /* target-y */ targetY,
+    /* target-w */ sourceW,
+    /* target-y */ sourceH,
   );
 }
 
