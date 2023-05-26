@@ -132,6 +132,12 @@
     "highlights_top": {
       "name": "Highlights (Top)",
       "author": "Ewan Howell"
+    },
+    "bevel": {
+      "author": "Ewan Howell"
+    },
+    "cracks": {
+      "author": "Ewan Howell"
     }
   }
 }
