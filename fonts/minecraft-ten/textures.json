@@ -75,8 +75,28 @@
     "classic_cobblestone": {
       "author": "Bold_Muddy"
     },
-    "wooden_planks": {
-      "author": "TheAnnoying"
+    "oak_planks": {
+      "author": "TheAnnoying",
+      "variants": {
+        "birch_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "acacia_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "dark_oak_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "crimson_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "warped_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "cherry_planks": {
+          "author": "OliviaTheVampire"
+        }
+      }
     },
     "dunes": {
       "author": "Ewan Howell"
@@ -95,24 +115,6 @@
     },
     "smooth_beveled": {
       "author": "justwilly"
-    },
-    "crimson_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
-    },
-    "warped_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
-    },
-    "cherry_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
-    },
-    "acaica_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
-    },
-    "birch_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
-    },
-    "dark_oak_planks": {
-      "author": "TheAnnoying & OliviaTheVampire"
     },
     "amethyst": {
       "author": "OliviaTheVampire"
