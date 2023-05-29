@@ -90,7 +90,7 @@ for (const font of fonts) {
   let overlayBackground
   const textures = fs.readdirSync(`../fonts/${font.id}/textures`).map(e => ["textures", e]).concat(fs.readdirSync(`../fonts/${font.id}/overlays`).map(e => ["overlays", e]))
   for (const file of textures) {
-    if (file[1] === "overlay.png") continue
+    if (file[1] === "overlay.png" || font.id === "minecraft-ten-outline") continue
 
     const img = await loadImage(`../fonts/${font.id}/${file[0]}/${file[1]}`)
     
