@@ -1,37 +1,43 @@
 {
   "textures": {
     "cracked": {
-      "author": "ShrimpSnail, Ewan Howell, & MrBrose"
-    },
-    "cracked_old": {
-      "name": "Cracked (Old)",
-      "author": "Yanuar Mohendra & ShrimpSnail"
+      "author": "ShrimpSnail, Ewan Howell, & MrBrose",
+      "variants": {
+        "cracked_old": {
+          "name": "Cracked (Old)",
+          "author": "Yanuar Mohendra & ShrimpSnail"
+        }
+      }
     },
     "smooth": {
-      "author": "Ewan Howell"
-    },
-    "smooth_inverted": {
-      "name": "Smooth (Inverted Highlight)",
-      "author": "Ewan Howell"
-    },
-    "smooth_old": {
-      "name": "Smooth (Old)",
-      "author": "Ewan Howell"
-    },
-    "smooth_inverted_old": {
-      "name": "Smooth (Old) (Inverted Highlight)",
-      "author": "Ewan Howell"
+      "author": "Ewan Howell",
+      "variants": {
+        "smooth_inverted": {
+          "name": "Smooth (Inverted Highlight)",
+          "author": "Ewan Howell"
+        },
+        "smooth_old": {
+          "name": "Smooth (Old)",
+          "author": "Ewan Howell"
+        },
+        "smooth_inverted_old": {
+          "name": "Smooth (Old) (Inverted Highlight)",
+          "author": "Ewan Howell"
+        }
+      }
     },
     "flat_coloured": {
       "author": "TheAnnoying"
     },
     "story_mode": {
       "name": "Story Mode (Season 1)",
-      "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell"
-    },
-    "story_mode2": {
-      "name": "Story Mode (Season 2)",
-      "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell"
+      "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell",
+      "variants": {
+        "story_mode2": {
+          "name": "Story Mode (Season 2)",
+          "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell"
+        }
+      }
     },
     "mineimator": {
       "name": "Mine-Imator Family",
@@ -52,10 +58,12 @@
       "author": "Banjoei & Shrimpsnail"
     },
     "neon": {
-      "author": "Ewan Howell"
-    },
-    "neon_glow": {
-      "author": "Ewan Howell"
+      "author": "Ewan Howell",
+      "variants":{
+        "neon_glow": {
+          "author": "Ewan Howell"
+        }
+      }
     },
     "fruit": {
       "author": "Ewan Howell & DamienBrittan"
@@ -79,12 +87,6 @@
           "author": "OliviaTheVampire"
         },
         "warped_nylium": {
-          "author": "OliviaTheVampire"
-        },
-        "warped_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "cherry_planks": {
           "author": "OliviaTheVampire"
         }
       }
