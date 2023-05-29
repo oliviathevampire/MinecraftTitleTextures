@@ -60,14 +60,34 @@
     "fruit": {
       "author": "Ewan Howell & DamienBrittan"
     },
-    "grass": {
-      "author": "ShrimpSnail & DamienBrittan"
-    },
     "bubbles": {
       "author": "oliver.mp3"
     },
     "noise": {
-      "author": "ShrimpSnail, DamienBrittan & oliver.mp3"
+      "author": "oliver.mp3",
+      "variants": {
+        "grass": {
+          "author": "ShrimpSnail & DamienBrittan"
+        },  
+        "podzol": {
+          "author": "OliviaTheVampire"
+        },
+        "mycelium": {
+          "author": "OliviaTheVampire"
+        },
+        "crimson_nylium": {
+          "author": "OliviaTheVampire"
+        },
+        "warped_nylium": {
+          "author": "OliviaTheVampire"
+        },
+        "warped_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "cherry_planks": {
+          "author": "OliviaTheVampire"
+        }
+      }
     },
     "minecon": {
       "author": "Ewan Howell"
