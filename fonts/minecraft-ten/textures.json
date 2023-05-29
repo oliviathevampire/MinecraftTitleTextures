@@ -145,32 +145,22 @@
     "bevelled_bubbles": {
       "author": "oliver.mp3 & OliviaTheVampire"
     },
-    "podzol": {
-      "author": "OliviaTheVampire"
-    },
-    "mycelium": {
-      "author": "OliviaTheVampire"
-    },
-    "crimson_nylium": {
-      "author": "OliviaTheVampire"
-    },
-    "warped_nylium": {
-      "author": "OliviaTheVampire"
-    },
     "bones": {
       "author": "OliviaTheVampire"
     },
     "something1": {
-      "author": "OliviaTheVampire"
-    },
-    "something2": {
-      "author": "OliviaTheVampire"
-    },
-    "something3": {
-      "author": "OliviaTheVampire"
-    },
-    "something4": {
-      "author": "OliviaTheVampire"
+      "author": "OliviaTheVampire",
+      "variants": {
+        "something2": {
+          "author": "OliviaTheVampire"
+        },
+        "something3": {
+          "author": "OliviaTheVampire"
+        },
+        "something4": {
+          "author": "OliviaTheVampire"
+        }
+      }
     }
   },
   "overlays": {
