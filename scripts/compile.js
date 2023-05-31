@@ -18,6 +18,7 @@ const charMap = {
   openquote: "😩",
   questionmark: "?",
   space: " ",
+  spacer: "​",
   start: "┫"
 }
 
