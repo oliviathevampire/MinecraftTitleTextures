@@ -18,7 +18,7 @@
           "name": "Smooth (Old)"
         },
         "smooth_inverted_old": {
-          "name": "Smooth (Old)"
+          "name": "Smooth (Old) (Inverted Highlight)"
         }
       }
     },
@@ -94,7 +94,13 @@
     "oak_planks": {
       "author": "TheAnnoying",
       "variants": {
+        "spruce_planks": {
+          "author": "OliviaTheVampire"
+        },
         "birch_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "jungle_planks": {
           "author": "OliviaTheVampire"
         },
         "acacia_planks": {
@@ -103,19 +109,19 @@
         "dark_oak_planks": {
           "author": "OliviaTheVampire"
         },
-        "crimson_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "warped_planks": {
+        "mangrove_planks": {
           "author": "OliviaTheVampire"
         },
         "cherry_planks": {
           "author": "OliviaTheVampire"
         },
-        "spruce_planks": {
+        "bamboo_planks": {
           "author": "OliviaTheVampire"
         },
-        "bamboo_planks": {
+        "crimson_planks": {
+          "author": "OliviaTheVampire"
+        },
+        "warped_planks": {
           "author": "OliviaTheVampire"
         }
       }
