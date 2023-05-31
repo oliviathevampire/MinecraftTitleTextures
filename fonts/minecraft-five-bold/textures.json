@@ -18,6 +18,9 @@
     "mangrove": {
       "name": "Mangrove (Wild Update)",
       "author": "Cubeoidal"
+    },
+    "bamboo_planks": {
+      "author": "OliviaTheVampire"
     }
   },
   "overlays": {}
