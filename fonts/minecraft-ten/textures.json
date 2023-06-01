@@ -1,6 +1,7 @@
 {
   "textures": {
     "cracked": {
+      "category": "Cracked",
       "author": "ShrimpSnail, Ewan Howell, & MrBrose",
       "variants": {
         "cracked_old": {
@@ -9,6 +10,7 @@
       }
     },
     "smooth": {
+      "category": "Smooth",
       "author": "Ewan Howell",
       "variants": {
         "smooth_inverted": {
@@ -26,12 +28,12 @@
       "author": "TheAnnoying"
     },
     "story_mode": {
+      "category": "Story Mode",
       "name": "Story Mode (Season 1)",
       "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell",
       "variants": {
         "story_mode2": {
-          "name": "Story Mode (Season 2)",
-          "author": "Yanuar Mohendra, ShrimpSnail, & Ewan Howell"
+          "name": "Story Mode (Season 2)"
         }
       }
     },
@@ -54,6 +56,7 @@
       "author": "Banjoei & Shrimpsnail"
     },
     "neon_glow": {
+      "category": "Neon",
       "author": "Ewan Howell",
       "variants": {
         "neon": {}
@@ -66,6 +69,7 @@
       "author": "oliver.mp3"
     },
     "noise": {
+      "category": "Noise",
       "author": "oliver.mp3",
       "variants": {
         "grass": {
@@ -92,6 +96,7 @@
       "author": "Bold_Muddy"
     },
     "oak_planks": {
+      "category": "Planks",
       "author": "TheAnnoying",
       "variants": {
         "spruce_planks": {
@@ -157,6 +162,7 @@
       "author": "OliviaTheVampire"
     },
     "something1": {
+      "category": "Something",
       "author": "OliviaTheVampire",
       "variants": {
         "something2": {
