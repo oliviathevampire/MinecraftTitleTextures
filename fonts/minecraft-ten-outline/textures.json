@@ -4,7 +4,10 @@
       "author": "Ewan Howell"
     },
     "marketplace": {
-      "author": "Ewan Howell"
+      "author": "Ewan Howell",
+      "variants": {
+        "realms": {}
+      }
     }
   },
   "overlays":  {
