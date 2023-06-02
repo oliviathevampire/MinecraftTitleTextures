@@ -1,16 +1,16 @@
 {
   "textures": {
     "cracked": {
-      "category": "Cracked",
       "author": "ShrimpSnail, Ewan Howell, & MrBrose",
       "variants": {
+        "cracked_left": {},
+        "cracked_right": {},
         "cracked_old": {
           "author": "Yanuar Mohendra & ShrimpSnail"
         }
       }
     },
     "smooth": {
-      "category": "Smooth",
       "author": "Ewan Howell",
       "variants": {
         "smooth_inverted": {
@@ -69,7 +69,6 @@
       "author": "oliver.mp3"
     },
     "noise": {
-      "category": "Noise",
       "author": "oliver.mp3",
       "variants": {
         "grass": {
@@ -150,7 +149,7 @@
       "author": "justwilly"
     },
     "amethyst": {
-      "author": "OliviaTheVampire"
+      "author": "Bold_Muddy"
     },
     "thing": {
       "author": "OliviaTheVampire"
@@ -165,15 +164,9 @@
       "category": "Something",
       "author": "OliviaTheVampire",
       "variants": {
-        "something2": {
-          "author": "OliviaTheVampire"
-        },
-        "something3": {
-          "author": "OliviaTheVampire"
-        },
-        "something4": {
-          "author": "OliviaTheVampire"
-        }
+        "something2": {},
+        "something3": {},
+        "something4": {}
       }
     }
   },

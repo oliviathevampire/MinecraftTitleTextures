@@ -91,7 +91,7 @@ for (const font of fonts) {
   let overlayBackground
   const textures = fs.readdirSync(`../fonts/${font.id}/textures`).map(e => ["textures", e]).concat(fs.readdirSync(`../fonts/${font.id}/overlays`).map(e => ["overlays", e]))
   for (const file of textures) {
-    if (file[1] === "overlay.png" || font.id === "minecraft-ten-outline") continue
+    if (file[1] === "overlay.png" || file[1]['type'] === '.ase') continue
 
     const img = await loadImage(`../fonts/${font.id}/${file[0]}/${file[1]}`)
     
@@ -101,10 +101,9 @@ for (const font of fonts) {
     canvas.saveAs(`temp/${font.id}/${file[0]}/${file[1]}`)
     
     // const word = '┣Minecr😳ft┫'.toLowerCase();
-    const word = "abcde"
-    // let word;
-    // if (font.id === "minecraft-five-bold-block" ) word = "┣abcde┫";
-    // else word = 'abcde';
+    // const word = "abcde"
+    let word = 'abcde';
+    if (font.id === "minecraft-five-bold-block" || font.id === "minecraft-ten-outline") word = "┫" + word + "┣";
     const thumbnailLetterCount = Array.from(word).length;
 
     let x = 0;
@@ -140,15 +139,40 @@ for (const font of fonts) {
         };
       });
 
+    let borderSize
+    if (font.borderless) {
+      borderSize = 0
+    } else {
+      borderSize = 2
+    }
+
     const textureScale = canvas.width / texture_base_width
     const canvasWidth = [...word].reduce((sum, letter) => {
       return sum + charData.find(data => data.character === letter).width + letterSpacing
     }, 0);
-    const thumbnail = new Canvas(canvasWidth * textureScale, font.height * textureScale)
+    // const thumbnail = new Canvas(canvasWidth * textureScale, font.height * textureScale)
+    let thumbnail
+    if (font.autoBorder || font.borderless) {
+      if (font.forcedTerminators) {
+        thumbnail = new Canvas(canvasWidth * textureScale - borderSize * 4 + font.forcedTerminators[4] * 2, font.height * textureScale)
+      } else {
+        thumbnail = new Canvas(canvasWidth * textureScale - borderSize * 4, font.height * textureScale)
+      }
+    } else {
+      if (font.forcedTerminators) {
+        thumbnail = new Canvas(canvasWidth * textureScale + borderSize * 4 + font.forcedTerminators[4] * 2, font.height * textureScale)
+      } else {
+        thumbnail = new Canvas(canvasWidth * textureScale, font.height * textureScale)
+      }
+    }
     const ctx = thumbnail.getContext("2d")
     
-    // const yOffset = (font.height - (font.ends[0][2] - font.ends[0][1])) / 2;
     let targetX = letterSpacing / 2;
+    if (font.forcedTerminators != null) {
+      const terminatorWidth = font.forcedTerminators[4] * textureScale
+      ctx.drawImage(canvas, font.forcedTerminators[0] * textureScale, font.forcedTerminators[1] * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale, borderSize * textureScale, borderSize * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale)
+      targetX += terminatorWidth + letterSpacing;
+    }
     for (let i = 0; i < thumbnailLetterCount; i++) {
       const letter = Array.from(word)[i];
       const letterData = charData.find(data => data.character === letter);
@@ -164,9 +188,13 @@ for (const font of fonts) {
       );
       targetX += letterData.width + letterSpacing;
     }
+    if (font.forcedTerminators != null) {
+      const terminatorWidth = font.forcedTerminators[4] * textureScale
+      ctx.drawImage(canvas, font.forcedTerminators[2] * textureScale, font.forcedTerminators[3] * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale, borderSize * textureScale, borderSize * textureScale + targetX * textureScale * 3 + terminatorWidth, terminatorWidth, font.forcedTerminators[5] * textureScale)
+    }
 
     if (file[0] === "textures") {
-      outline(thumbnail, 2 * textureScale, context.getImageData(0, font.border * textureScale, 1, 1).data)
+      if (!font.borderless) outline(thumbnail, 2 * textureScale, context.getImageData(0, font.border * textureScale, 1, 1).data)
     } else {
       ctx.globalCompositeOperation = "destination-over"
       ctx.imageSmoothingEnabled = false
@@ -202,7 +230,7 @@ function copyLetter(
     /* target-x */ targetX,
     /* target-y */ targetY,
     /* target-w */ sourceW,
-    /* target-y */ sourceH,
+    /* target-h */ sourceH,
   );
 }
 

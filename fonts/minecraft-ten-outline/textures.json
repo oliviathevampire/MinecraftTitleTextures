@@ -2,7 +2,15 @@
   "textures": {
     "flat": {
       "author": "Ewan Howell"
+    },
+    "marketplace": {
+      "author": "Ewan Howell"
     }
   },
-  "overlays": {}
+  "overlays":  {
+    "bottom_depth": {
+      "name": "Bottom depth",
+      "author": "Shrimpsnail"
+    }
+  }
 }
