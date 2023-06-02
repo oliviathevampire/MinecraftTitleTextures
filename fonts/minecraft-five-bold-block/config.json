@@ -1,6 +1,14 @@
 {
-    "chars": ["😳abcdefghijklmnopqrstuvwxy ", "z0123456789&#()[]{}/\\?!.:-😩'+=<>^*", ",;_$@£€%~┣┫​"],
+    "chars": ["😳abcdefghijklmnopqrstuvwxy ", "z0123456789&#()[]{}/\\?!.:-😩'+=<>^*", ",;_$@£€%~┫┣ ​​"],
     "texture_base_width": 1000,
     "letterSpacing": 0,
-    "yOffset": 2
+    "yOffset": 0,
+    "extraCharacterData": {
+        "┫": {
+            "offsetLeft": 16
+        },
+        "┣": {
+            "offsetRight": 16
+        }
+    } 
 }

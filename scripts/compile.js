@@ -1,7 +1,7 @@
 import { Canvas, loadImage, ImageData } from "skia-canvas"
 import compress_images from "compress-images"
 
-import fs from "node:fs"
+import fs, { write } from "node:fs"
 import path from 'node:path';
 
 fs.rmSync("temp", { recursive: true, force: true })
@@ -91,7 +91,7 @@ for (const font of fonts) {
   let overlayBackground
   const textures = fs.readdirSync(`../fonts/${font.id}/textures`).map(e => ["textures", e]).concat(fs.readdirSync(`../fonts/${font.id}/overlays`).map(e => ["overlays", e]))
   for (const file of textures) {
-    if (file[1] === "overlay.png" || file[1]['type'] === '.ase') continue
+    if (file[1] === "overlay.png") continue
 
     const img = await loadImage(`../fonts/${font.id}/${file[0]}/${file[1]}`)
     
@@ -100,16 +100,13 @@ for (const font of fonts) {
     context.drawImage(img, 0, 0)
     canvas.saveAs(`temp/${font.id}/${file[0]}/${file[1]}`)
     
-    // const word = '┣Minecr😳ft┫'.toLowerCase();
-    // const word = "abcde"
-    let word = 'abcde';
-    if (font.id === "minecraft-five-bold-block" || font.id === "minecraft-ten-outline") word = "┫" + word + "┣";
+    const word = "abcde"
     const thumbnailLetterCount = Array.from(word).length;
 
     let x = 0;
     let y = 0;
     
-    const {chars, texture_base_width, letterSpacing, yOffset} = JSON.parse(fs.readFileSync(`../fonts/${font.id}/config.json`))
+    const {chars, texture_base_width, letterSpacing, yOffset, extraCharacterData} = JSON.parse(fs.readFileSync(`../fonts/${font.id}/config.json`))
     
     const charData = Object.keys(characters)
       .map((c) => {
@@ -128,10 +125,16 @@ for (const font of fonts) {
           y = char.row;
           x = 0;
         }
+        if (extraCharacterData?.[char.character]?.offsetLeft) {
+          x += extraCharacterData[char.character]?.offsetLeft;
+        }
         const pos = {
           x,
           y: font.ends[char.row][1],
         };
+        if (extraCharacterData?.[char.character]?.offsetRight) {
+          x += extraCharacterData[char.character]?.offsetRight;
+        }
         x += char.width + 2;
         return {
           ...char,
@@ -145,8 +148,12 @@ for (const font of fonts) {
     } else {
       borderSize = 2
     }
-
+    
     const textureScale = canvas.width / texture_base_width
+
+    const openTerminator = charData.find(data => data.character === charMap.start);
+    const closeTerminator = charData.find(data => data.character === charMap.end);
+
     const canvasWidth = [...word].reduce((sum, letter) => {
       return sum + charData.find(data => data.character === letter).width + letterSpacing
     }, 0);
@@ -154,7 +161,10 @@ for (const font of fonts) {
     let thumbnail
     if (font.autoBorder || font.borderless) {
       if (font.forcedTerminators) {
-        thumbnail = new Canvas(canvasWidth * textureScale - borderSize * 4 + font.forcedTerminators[4] * 2, font.height * textureScale)
+        thumbnail = new Canvas(
+          canvasWidth * textureScale + borderSize * 2 + openTerminator.width * textureScale + closeTerminator.width * textureScale, 
+          font.height * textureScale
+        )
       } else {
         thumbnail = new Canvas(canvasWidth * textureScale - borderSize * 4, font.height * textureScale)
       }
@@ -166,32 +176,40 @@ for (const font of fonts) {
       }
     }
     const ctx = thumbnail.getContext("2d")
-    
-    let targetX = letterSpacing / 2;
-    if (font.forcedTerminators != null) {
-      const terminatorWidth = font.forcedTerminators[4] * textureScale
-      ctx.drawImage(canvas, font.forcedTerminators[0] * textureScale, font.forcedTerminators[1] * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale, borderSize * textureScale, borderSize * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale)
-      targetX += terminatorWidth + letterSpacing;
-    }
-    for (let i = 0; i < thumbnailLetterCount; i++) {
-      const letter = Array.from(word)[i];
-      const letterData = charData.find(data => data.character === letter);
+    let targetX = borderSize;
+
+    function writeLetter(characterToWrite, addsSpace) {
       copyLetter(
         ctx,
         canvas,
-        letterData.x * textureScale, // sourcex
-        letterData.y * textureScale, // sourcey
-        letterData.width * textureScale, // sourcew
-        letterData.height * textureScale, // sourceh
+        characterToWrite.x * textureScale, // sourcex
+        characterToWrite.y * textureScale, // sourcey
+        characterToWrite.width * textureScale, // sourcew
+        characterToWrite.height * textureScale, // sourceh
         targetX * textureScale, // targetx
-        (yOffset + (letterSpacing / 2)) * textureScale,
-      );
-      targetX += letterData.width + letterSpacing;
+        (yOffset + borderSize) * textureScale, //targety
+      )
+      if (addsSpace) targetX += characterToWrite.width;
     }
-    if (font.forcedTerminators != null) {
-      const terminatorWidth = font.forcedTerminators[4] * textureScale
-      ctx.drawImage(canvas, font.forcedTerminators[2] * textureScale, font.forcedTerminators[3] * textureScale, terminatorWidth, font.forcedTerminators[5] * textureScale, borderSize * textureScale, borderSize * textureScale + targetX * textureScale * 3 + terminatorWidth, terminatorWidth, font.forcedTerminators[5] * textureScale)
+
+    function insertSpacer() {
+      const spacer = charData.find(data => data.character === charMap.spacer);
+      if (spacer) {
+        const numSpaces = letterSpacing / spacer.width;
+        for (let spaceIndex = 0; spaceIndex < numSpaces; spaceIndex++) {
+          writeLetter(spacer, true);
+        }
+      } else {
+        targetX += letterSpacing;
+      }
     }
+
+    if (font.forcedTerminators != null) writeLetter(openTerminator, true);
+    for (let i = 0; i < thumbnailLetterCount; i++) {
+      writeLetter(charData.find(data => data.character === Array.from(word)[i]), true);
+      insertSpacer();
+    }
+    if (font.forcedTerminators != null) writeLetter(closeTerminator, false);
 
     if (file[0] === "textures") {
       if (!font.borderless) outline(thumbnail, 2 * textureScale, context.getImageData(0, font.border * textureScale, 1, 1).data)
