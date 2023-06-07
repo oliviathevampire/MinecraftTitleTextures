@@ -151,6 +151,13 @@
     "amethyst": {
       "author": "Bold_Muddy"
     },
+    "copper": {
+      "author": "Ewan Howell",
+      "variants": {
+        "oxidised_copper": {},
+        "oxidising_copper": {}
+      }
+    },
     "thing": {
       "author": "OliviaTheVampire"
     },
@@ -167,13 +174,6 @@
         "something2": {},
         "something3": {},
         "something4": {}
-      }
-    },
-    "copper": {
-      "author": "Ewan Howell",
-      "variants": {
-        "oxidised_copper": {},
-        "oxidising_copper": {}
       }
     }
   },
