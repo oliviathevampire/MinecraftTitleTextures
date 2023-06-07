@@ -168,6 +168,13 @@
         "something3": {},
         "something4": {}
       }
+    },
+    "copper": {
+      "author": "Ewan Howell",
+      "variants": {
+        "oxidised_copper": {},
+        "oxidising_copper": {}
+      }
     }
   },
   "overlays": {
