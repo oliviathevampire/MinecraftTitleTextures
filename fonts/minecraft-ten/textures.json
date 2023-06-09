@@ -181,7 +181,13 @@
       "author": "Ewan Howell"
     },
     "candy_cane": {
-      "author": "OliviaTheVampire"
+      "category": "Candy Canes",
+      "author": "OliviaTheVampire",
+      "variants": {
+        "candy_cane_green": {},
+        "candy_cane_pink": {},
+        "candy_cane_yellow": {}
+      }
     },
     "thing": {
       "author": "OliviaTheVampire"
