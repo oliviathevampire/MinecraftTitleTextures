@@ -74,6 +74,9 @@
         "grass": {
           "author": "ShrimpSnail & DamienBrittan"
         },  
+        "flowers": {
+          "author": "SzyszaDev"
+        },
         "podzol": {
           "author": "OliviaTheVampire"
         },
@@ -163,12 +166,19 @@
       "author": "Magminer",
       "variants": {
         "cake_vanilla": {},
+        "cake_vanilla_no_drops": {},
         "cake_vanilla_plain": {},
+        "cake_vanilla_plain_no_drops": {},
         "cake_chocolate": {},
         "cake_chocolate_plain": {},
-        "cake_strawberry": {},
-        "cake_strawberry_plain": {}
+        "cake_strawberry_no_drops": {},
+        "cake_strawberry_plain_no_drops": {},
+        "cake_minecraft_no_drops": {},
+        "cake_minecraft_plain_no_drops": {}
       }
+    },
+    "beach": {
+      "author": "Ewan Howell"
     },
     "candy_cane": {
       "author": "OliviaTheVampire"
@@ -215,6 +225,28 @@
     },
     "inset_outline": {
       "author": "Ewan Howell"
+    },
+    "edge_fade": {
+      "author": "Ewan Howell"
+    },
+    "tiles": {
+      "author": "Ewan Howell"
+    },
+    "bevel_highlight_bottom": {
+      "name": "Bevel Highlight (Bottom)",
+      "author": "FloideN"
+    },
+    "bevel_highlight_top": {
+      "name": "Bevel Highlight (Top)",
+      "author": "FloideN"
+    },
+    "texture_highlight_1": {
+      "name": "Texture Highlight (1)",
+      "author": "FloideN"
+    },
+    "texture_highlight_2": {
+      "name": "Texture Highlight (2)",
+      "author": "FloideN"
     }
   }
 }
