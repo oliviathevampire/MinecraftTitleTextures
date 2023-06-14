@@ -6,6 +6,10 @@
         "cracked_left": {},
         "cracked_right": {},
         "cracked_old": {
+          "author": "Yanuar Mohendra, MrBrose & ShrimpSnail"
+        },
+        "cracked_old_pixelated": {
+          "name": "Cracked Old (Pixelated)",
           "author": "Yanuar Mohendra & ShrimpSnail"
         }
       }
@@ -73,6 +77,9 @@
       "variants": {
         "grass": {
           "author": "ShrimpSnail & DamienBrittan"
+        },
+        "grass_side": {
+          "author": "Magminer & Ewan Howell"
         },  
         "flowers": {
           "author": "SzyszaDev"
@@ -179,6 +186,23 @@
     },
     "beach": {
       "author": "Ewan Howell"
+    },
+    "pixel": {
+      "author": "MrBrose"
+    },
+    "ice": {
+      "author": "Feby Kah & Ewan Howell"
+    },
+    "bricks": {
+      "author": "IIAmMaker"
+    },
+    "midnight": {
+      "author": "Ninjaabdullah",
+      "variants": {
+        "midnight_no_stars": {
+          "name": "Midnight (No Stars)"
+        }
+      }
     },
     "candy_cane": {
       "category": "Candy Canes",

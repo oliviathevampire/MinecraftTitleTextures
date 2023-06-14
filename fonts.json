@@ -55,5 +55,22 @@
     ],
     "borderless": true,
     "forcedTerminators": [254, 124, 264, 124, 8, 60]
+  },
+  {
+    "id": "minecraft-dungeons",
+    "author": "Shrimpsnail",
+    "width": 32,
+    "height": 44,
+    "border": 266,
+    "faces": [
+      [22, 62],
+      [108, 148],
+      [194, 242]
+    ],
+    "ends": [
+      [0, 22, 62, 84],
+      [86, 108, 148, 170],
+      [172, 194, 242, 264]
+    ]
   }
 ]
