@@ -2,6 +2,9 @@
     "textures": {
       "flat": {
         "author": "Shrimpsnail"
+      },
+      "fired": {
+        "author": "Shrimpsnail, FloideN & OliviaTheVampire"
       }
     },
     "overlays": {
