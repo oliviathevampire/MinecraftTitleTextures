@@ -172,20 +172,67 @@
       "category": "Cakes",
       "author": "Magminer",
       "variants": {
-        "cake_vanilla": {},
-        "cake_vanilla_no_drops": {},
-        "cake_vanilla_plain": {},
-        "cake_vanilla_plain_no_drops": {},
-        "cake_chocolate": {},
-        "cake_chocolate_plain": {},
-        "cake_strawberry_no_drops": {},
-        "cake_strawberry_plain_no_drops": {},
+        "cake_dark_chocolate": {},
+        "cake_dark_chocolate_no_drops": {},
+        "cake_dark_chocolate_plain": {},
+        "cake_dark_chocolate_plain_no_drops": {},
+        "cake_honey": {},
+        "cake_honey_no_drops": {},
+        "cake_honey_plain": {},
+        "cake_honey_plain_no_drops": {},
+        "cake_milk_chocolate": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_milk_chocolate_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_milk_chocolate_plain": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_milk_chocolate_plain_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_minecraft": {},
         "cake_minecraft_no_drops": {},
-        "cake_minecraft_plain_no_drops": {}
+        "cake_minecraft_plain": {},
+        "cake_minecraft_plain_no_drops": {},
+        "cake_strawberry": {},
+        "cake_strawberry_no_drops": {},
+        "cake_strawberry_plain": {},
+        "cake_strawberry_plain_no_drops": {},
+        "cake_vanilla": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_vanilla_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_vanilla_plain": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_vanilla_plain_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_white_chocolate": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_white_chocolate_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_white_chocolate_plain": {
+          "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_white_chocolate_plain_no_drops": {
+          "author": "Magminer & OliviaTheVampire"
+        }
       }
     },
     "beach": {
-      "author": "Ewan Howell"
+      "author": "Ewan Howell",
+      "variants": {
+        "sand": {
+          "author": "Magminer"
+        }
+      }
     },
     "pixel": {
       "author": "MrBrose"
@@ -206,6 +253,49 @@
           "name": "Midnight (No Stars)"
         }
       }
+    },
+    "dock": {
+      "name": "Sky (Dock)",
+      "author": "RyanCR",
+      "variants": {
+        "dock_clear": {
+          "name": "Dock (Clear)"
+        }
+      }
+    },
+    "trails_and_tales": {
+      "author": "Abe H"
+    },
+    "blueprint": {
+      "author": "WassMan"
+    },
+    "create": {
+      "name": "Create Mod",
+      "author": "FeDoT_Dev"
+    },
+    "diamond": {
+      "author": "StevePiglin"
+    },
+    "honeycomb": {
+      "author": "Darius The Baguette"
+    },
+    "metal": {
+      "author": "Ace"
+    },
+    "shiny_texture": {
+      "author": "Chipdo"
+    },
+    "soul": {
+      "author": "oliver.mp3"
+    },
+    "steel_hardening": {
+      "author": "TheSamirMC"
+    },
+    "ukraine_flag": {
+      "author": "ratskui"
+    },
+    "norway_flag": {
+      "author": "OliviaTheVampire"
     },
     "candy_cane": {
       "category": "Candy Canes",
@@ -253,6 +343,10 @@
     "shine": {
       "author": "Ewan Howell"
     },
+    "shine_random": {
+      "author": "Ewan Howell",
+      "name": "Shine (Random)"
+    },
     "outline": {
       "author": "Ewan Howell"
     },
@@ -272,6 +366,10 @@
     "bevel_highlight_top": {
       "name": "Bevel Highlight (Top)",
       "author": "FloideN"
+    },
+    "big_bevel": {
+      "name": "Big Bevel",
+      "author": "PopitTart"
     },
     "texture_highlight_1": {
       "name": "Texture Highlight (1)",
