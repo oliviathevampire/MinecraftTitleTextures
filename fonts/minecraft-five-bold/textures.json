@@ -19,6 +19,12 @@
       "name": "Mangrove (Wild Update)",
       "author": "Cubeoidal"
     },
+    "bevelled_gold": {
+      "author": "PopitTart"
+    },
+    "dots": {
+      "author": "Ewan Howell"
+    },
     "oak_planks": {
       "category": "Planks",
       "author": "OliviaTheVampire",
@@ -33,9 +39,6 @@
         "bamboo_planks": {},
         "crimson_planks": {},
         "warped_planks": {}
-      },
-      "dots": {
-        "author": "Ewan Howell"
       }
     }
   },
