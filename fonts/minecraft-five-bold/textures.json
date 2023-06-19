@@ -25,6 +25,23 @@
     "dots": {
       "author": "Ewan Howell"
     },
+    "pride": {
+      "author": "Snuzzle",
+      "variants": {
+        "aroace": {},
+        "aromantic": {},
+        "asexual": {},
+        "bisexual": {},
+        "enby": {},
+        "fluid": {},
+        "gay": {},
+        "heterosexual": {},
+        "intersex": {},
+        "lesbian": {},
+        "pansexual": {},
+        "trans": {}
+      }
+    },
     "oak_planks": {
       "category": "Planks",
       "author": "OliviaTheVampire",
