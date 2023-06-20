@@ -87,6 +87,9 @@
         "flowers": {
           "author": "SzyszaDev"
         },
+        "flowers_side": {
+          "author": "MarkinhosMLP"
+        },
         "podzol": {
           "author": "OliviaTheVampire"
         },
@@ -244,7 +247,10 @@
       "author": "Feby Kah & Ewan Howell"
     },
     "bricks": {
-      "author": "IIAmMaker"
+      "author": "IAmMaker",
+      "variants": {
+        "minecraft_bricks":{}
+      }
     },
     "fired": {
       "author": "FloideN"
@@ -325,6 +331,15 @@
         "pansexual": {},
         "trans": {}
       }
+    },
+    "netherite": {
+      "author": "DragonSlayr15001",
+      "variants": {
+        "gilded_netherite": {}
+      }  
+    },
+    "simplacity": {
+      "author": "ShinyDragon96 & ShiNeaL"
     },
     "norway_flag": {
       "name": "Land of the Tispe",
