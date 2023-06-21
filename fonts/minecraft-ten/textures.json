@@ -249,7 +249,7 @@
     "bricks": {
       "author": "IAmMaker",
       "variants": {
-        "minecraft_bricks":{}
+        "bricks_minecraft": {}
       }
     },
     "fired": {
