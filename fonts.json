@@ -72,5 +72,28 @@
       [86, 108, 148, 170],
       [172, 194, 242, 264]
     ]
+  },
+  {
+    "id": "minecraft-ten-cyrillic",
+    "name": "Minecraft Ten (Cyrillic)",
+    "author": "xllifi",
+    "example": [
+      "пример",
+      "текст😳"
+    ],
+    "width": 32,
+    "height": 44,
+    "border": 277,
+    "faces": [
+      [22, 62],
+      [108, 148],
+      [194, 205, 245, 253]
+    ],
+    "ends": [
+      [0, 22, 62, 84],
+      [86, 108, 148, 170],
+      [172, 194, 253, 275]
+    ],
+    "terminatorSpace": true
   }
 ]
