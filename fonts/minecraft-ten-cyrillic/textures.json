@@ -1,12 +1,13 @@
 {
     "textures": {
       "flat": {
-        "name": "Flat",
         "author": "xllifi"
       },
       "cracked": {
-        "name": "Cracked",
         "author": "xllifi"
+      },
+      "pixel": {
+        "author": "Sawiq"
       }
     },
     "overlays": {
