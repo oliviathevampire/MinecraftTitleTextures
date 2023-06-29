@@ -344,6 +344,26 @@
     "haunted": {
       "author": "Ninjaabdullah"
     },
+    "earth": {
+      "author": "HARYA_"
+    },
+    "creeper": {
+      "author": "Andre_601"
+    },
+    "nether_update_purple": {
+      "name": "Nether Update (Purple)",
+      "author": "TruMiner"
+    },
+    "nether_update_blue": {
+      "name": "Nether Update (Blue)",
+      "author": "TruMiner"
+    },
+    "lava": {
+      "author": "Pamir",
+      "variants": {
+        "soul_lava": {}
+      }  
+    },
     "norway_flag": {
       "name": "Land of the Tispe",
       "author": "OliviaTheVampire"
