@@ -2,8 +2,8 @@
 	"credit": "By Ewan Howell",
 	"texture_size": [1000, 320],
 	"textures": {
-		"2": "flat_new",
-		"particle": "flat_new"
+		"2": "minecraft-dungeons:flat",
+		"particle": "minecraft-dungeons:flat"
 	},
 	"elements": [
 		{
@@ -24,8 +24,8 @@
 				"east": {"uv": [0, 13.3, 0.016, 13.35], "texture": "#2"},
 				"south": {"uv": [0.016, 13.3, 0, 13.35], "texture": "#2"},
 				"west": {"uv": [0, 13.3, 0.016, 13.35], "texture": "#2"},
-				"up": {"uv": [1.232, 14.3, 1.488, 14.35], "texture": "#2"},
-				"down": {"uv": [1.232, 14.3, 1.488, 14.35], "texture": "#2"}
+				"up": {"uv": [0.064, 13.85, 0.32, 13.9], "texture": "#2"},
+				"down": {"uv": [0.064, 13.85, 0.32, 13.9], "texture": "#2"}
 			}
 		},
 		{

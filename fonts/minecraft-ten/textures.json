@@ -6,7 +6,7 @@
         "cracked_left": {},
         "cracked_right": {},
         "cracked_old": {
-          "author": "Yanuar Mohendra, MrBrose & ShrimpSnail"
+          "author": "Yanuar Mohendra, MrBrose, & ShrimpSnail"
         },
         "cracked_old_pixelated": {
           "name": "Cracked Old (Pixelated)",
@@ -72,23 +72,17 @@
     "fruit": {
       "author": "Ewan Howell & DamienBrittan"
     },
-    "bubbles": {
-      "author": "oliver.mp3"
-    },
-    "noise": {
-      "author": "oliver.mp3",
+    "grass": {
+      "author": "ShrimpSnail & DamienBrittan",
       "variants": {
-        "grass": {
-          "author": "ShrimpSnail & DamienBrittan"
-        },
         "grass_side": {
           "author": "Magminer & Ewan Howell"
         },
         "flowers": {
           "author": "SzyszaDev"
         },
-        "flowers_side": {
-          "author": "MarkinhosMLP"
+        "grass_side_flowers": {
+          "author": "Magminer & Ewan Howell & SzyszaDev"
         },
         "podzol": {
           "author": "OliviaTheVampire"
@@ -104,6 +98,9 @@
         }
       }
     },
+    "bubbles": {
+      "author": "7px"
+    },
     "minecon": {
       "author": "Ewan Howell"
     },
@@ -114,36 +111,16 @@
       "category": "Planks",
       "author": "TheAnnoying",
       "variants": {
-        "spruce_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "birch_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "jungle_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "acacia_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "dark_oak_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "mangrove_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "cherry_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "bamboo_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "crimson_planks": {
-          "author": "OliviaTheVampire"
-        },
-        "warped_planks": {
-          "author": "OliviaTheVampire"
-        }
+        "spruce_planks": {},
+        "birch_planks": {},
+        "jungle_planks": {},
+        "acacia_planks": {},
+        "dark_oak_planks": {},
+        "mangrove_planks": {},
+        "cherry_planks": {},
+        "bamboo_planks": {},
+        "crimson_planks": {},
+        "warped_planks": {}
       }
     },
     "dunes": {
@@ -161,7 +138,7 @@
     "wavey": {
       "author": "justwilly"
     },
-    "smooth_beveled": {
+    "smooth_bevelled": {
       "author": "justwilly"
     },
     "amethyst": {
@@ -198,7 +175,10 @@
         "cake_milk_chocolate_plain_no_drops": {
           "author": "Magminer & OliviaTheVampire"
         },
-        "cake_minecraft": {},
+        "cake_minecraft": {
+          "name": "Cake (Minecraft)",
+          "author": "Ewan Howell & SzyszaDev"
+        },
         "cake_minecraft_no_drops": {},
         "cake_minecraft_plain": {},
         "cake_minecraft_plain_no_drops": {},
@@ -218,19 +198,22 @@
         "cake_vanilla_plain_no_drops": {
           "author": "Magminer & OliviaTheVampire"
         },
-        "cake_white_chocolate": {
-          "author": "Magminer & OliviaTheVampire"
-        },
-        "cake_white_chocolate_no_drops": {
-          "author": "Magminer & OliviaTheVampire"
+        "cake_no_drops": {
+          "name": "Cake (No Drops)"
         },
         "cake_white_chocolate_plain": {
           "author": "Magminer & OliviaTheVampire"
         },
         "cake_white_chocolate_plain_no_drops": {
           "author": "Magminer & OliviaTheVampire"
+        },
+        "cake_plain": {
+          "name": "Cake (Plain)"
         }
       }
+    },
+    "fired": {
+      "author": "FloideN"
     },
     "beach": {
       "author": "Ewan Howell",
@@ -246,15 +229,6 @@
     "ice": {
       "author": "Feby Kah & Ewan Howell"
     },
-    "bricks": {
-      "author": "IAmMaker",
-      "variants": {
-        "bricks_minecraft": {}
-      }
-    },
-    "fired": {
-      "author": "FloideN"
-    },
     "midnight": {
       "author": "Ninjaabdullah",
       "variants": {
@@ -264,19 +238,12 @@
       }
     },
     "dock": {
-      "name": "Sky (Dock)",
       "author": "RyanCR",
       "variants": {
         "dock_clear": {
           "name": "Dock (Clear)"
         }
       }
-    },
-    "trails_and_tales": {
-      "author": "Abe"
-    },
-    "blueprint": {
-      "author": "WassMan"
     },
     "create": {
       "name": "Create Mod",
@@ -332,17 +299,32 @@
         "trans": {}
       }
     },
+    "bricks": {
+      "author": "IAmMaker",
+      "variants": {
+        "bricks_minecraft": {
+          "name": "Bricks (Minecraft)"
+        },
+        "bricks_bare_bones": {
+          "name": "Bricks (Bare Bones)",
+          "author": "Klayv"
+        }
+      }
+    },
     "netherite": {
       "author": "DragonSlayr15001",
       "variants": {
         "gilded_netherite": {}
-      }  
+      }
     },
     "simplacity": {
       "author": "ShinyDragon96 & ShiNeaL"
     },
-    "haunted": {
-      "author": "Ninjaabdullah"
+    "trails_and_tales": {
+      "author": "Abe"
+    },
+    "blueprint": {
+      "author": "WassMan"
     },
     "earth": {
       "author": "HARYA_"
@@ -358,46 +340,74 @@
       "name": "Nether Update (Blue)",
       "author": "TruMiner"
     },
+    "haunted": {
+      "author": "Ninjaabdullah"
+    },
+    "flames": {
+      "author": "RyanCR",
+      "variants": {
+        "flames_soul": {
+          "name": "Soul Flames"
+        }
+      }
+    },
     "lava": {
       "author": "Pamir",
       "variants": {
         "soul_lava": {}
-      }  
-    },
-    "norway_flag": {
-      "name": "Land of the Tispe",
-      "author": "OliviaTheVampire"
-    },
-    "french": {
-      "name": "Land of la baguette",
-      "author": "OliviaTheVampire"
-    },
-    "candy_cane": {
-      "category": "Candy Canes",
-      "author": "OliviaTheVampire",
-      "variants": {
-        "candy_cane_green": {},
-        "candy_cane_pink": {},
-        "candy_cane_yellow": {}
       }
     },
-    "thing": {
-      "author": "OliviaTheVampire"
+    "iron_block": {
+      "author": "Andre_601"
+    },
+    "sniffer": {
+      "author": "SmarterCob"
+    },
+    "atmosphere": {
+      "author": "Zodiuss"
+    },
+    "gurgles": {
+      "author": "Bit sek"
+    },
+    "crystal": {
+      "name": "Crystal (Caves & Cliffs)",
+      "author": "blank3times"
+    },
+    "end_crystal": {
+      "author": "blank3times"
+    },
+    "glow_squid": {
+      "author": "Bit sek"
+    },
+    "cherry_blossom": {
+      "author": "Klayv",
+      "variants": {
+        "cherry_blossom_small": {
+          "name": "Cherry Blossom (Small)",
+          "author": "NotAGanesh"
+        }
+      }
+    },
+    "barrel": {
+      "author": "Klayv"
     },
     "bevelled_bubbles": {
       "author": "oliver.mp3 & OliviaTheVampire"
     },
-    "bones": {
-      "author": "OliviaTheVampire"
+    "hay_bale": {
+      "author": "Klayv"
     },
-    "something1": {
-      "category": "Something",
-      "author": "OliviaTheVampire",
+    "winter": {
+      "author": "Klayv"
+    },
+    "bamboo": {
+      "author": "Klayv",
       "variants": {
-        "something2": {},
-        "something3": {},
-        "something4": {}
+        "stripped_bamboo": {}
       }
+    },
+    "terracotta": {
+      "author": "Klayv"
     }
   },
   "overlays": {
@@ -436,7 +446,7 @@
       "author": "Ewan Howell"
     },
     "tiles": {
-      "author": "Ewan Howell"
+      "author": "SzyszaDev"
     },
     "bevel_highlight_bottom": {
       "name": "Bevel Highlight (Bottom)",
@@ -451,12 +461,33 @@
       "author": "PopitTart"
     },
     "texture_highlight_1": {
-      "name": "Texture Highlight (1)",
+      "name": "Texture Highlight",
       "author": "FloideN"
     },
     "texture_highlight_2": {
-      "name": "Texture Highlight (2)",
+      "name": "Texture Highlight (Offset)",
       "author": "FloideN"
+    },
+    "cartoon": {
+      "author": "leosz13"
+    },
+    "outline_fade": {
+      "author": "blank3times"
+    },
+    "glass": {
+      "author": "Bit sek"
+    },
+    "glass_old": {
+      "name": "Glass (Old)",
+      "author": "Bit sek"
+    },
+    "highlights_right": {
+      "name": "highlights right",
+      "author": "Bit sek"
+    },
+    "highlights_left": {
+      "name": "highlights left",
+      "author": "Bit sek"
     }
   }
 }

@@ -2,8 +2,8 @@
 	"credit": "By Ewan Howell",
 	"texture_size": [1000, 320],
 	"textures": {
-		"1": "flat_new",
-		"particle": "flat_new"
+		"1": "minecraft-dungeons:flat",
+		"particle": "minecraft-dungeons:flat"
 	},
 	"elements": [
 		{
@@ -28,6 +28,5 @@
 				"down": {"uv": [0, 13.3, 0.016, 13.35], "texture": "#1"}
 			}
 		}
-	],
-	"display": {}
+	]
 }

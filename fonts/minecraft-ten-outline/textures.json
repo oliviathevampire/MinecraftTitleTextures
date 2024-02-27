@@ -4,13 +4,23 @@
       "author": "Ewan Howell"
     },
     "marketplace": {
-      "author": "Ewan Howell",
+      "author": "Ewan Howell"
+    },
+    "neon_glow": {
+      "category": "Neon",
+      "author": "MCAlexisYT",
       "variants": {
-        "realms": {}
+        "neon": {}
       }
+    },
+    "realms": {
+      "author": "blank3times"
+    },
+    "mob_vote_icon": {
+      "author": "Bit seK"
     }
   },
-  "overlays":  {
+  "overlays": {
     "bottom_depth": {
       "name": "Bottom depth",
       "author": "Shrimpsnail"

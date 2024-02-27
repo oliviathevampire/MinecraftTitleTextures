@@ -1,23 +1,52 @@
 {
-    "textures": {
-      "flat": {
-        "author": "xllifi"
-      },
-      "cracked": {
-        "author": "xllifi"
-      },
-      "pixel": {
-        "author": "Sawiq"
+  "textures": {
+    "flat": {
+      "author": "xllifi"
+    },
+    "cracked": {
+      "author": "xllifi",
+      "variants": {
+        "cracked_old": {
+          "author": "Yozhenka"
+        }
       }
     },
-    "overlays": {
-      "highlights_bottom": {
-        "name": "Highlights (Bottom)",
-        "author": "xllifi"
-      },
-      "highlights_top": {
-        "name": "Highlights (Top)",
-        "author": "xllifi"
+    "pixel": {
+      "author": "Sawiq"
+    },
+    "neon_glow": {
+      "category": "Neon",
+      "author": "MCAlexisYT",
+      "variants": {
+        "neon": {}
+      }
+    },
+    "pride": {
+      "author": "Yozhenka",
+      "variants": {
+        "aroace": {},
+        "aromantic": {},
+        "asexual": {},
+        "bisexual": {},
+        "enby": {},
+        "fluid": {},
+        "gay": {},
+        "heterosexual": {},
+        "intersex": {},
+        "lesbian": {},
+        "pansexual": {},
+        "trans": {}
       }
     }
+  },
+  "overlays": {
+    "highlights_bottom": {
+      "name": "Highlights (Bottom)",
+      "author": "xllifi"
+    },
+    "highlights_top": {
+      "name": "Highlights (Top)",
+      "author": "xllifi"
+    }
   }
+}

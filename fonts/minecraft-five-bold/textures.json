@@ -19,11 +19,27 @@
       "name": "Mangrove (Wild Update)",
       "author": "Cubeoidal"
     },
-    "bevelled_gold": {
-      "author": "PopitTart"
+    "oak_planks": {
+      "category": "Planks",
+      "author": "TheAnnoying",
+      "variants": {
+        "spruce_planks": {},
+        "birch_planks": {},
+        "jungle_planks": {},
+        "acacia_planks": {},
+        "dark_oak_planks": {},
+        "mangrove_planks": {},
+        "cherry_planks": {},
+        "bamboo_planks": {},
+        "crimson_planks": {},
+        "warped_planks": {}
+      }
     },
     "dots": {
       "author": "Ewan Howell"
+    },
+    "bevelled_gold": {
+      "author": "PopitTart"
     },
     "pride": {
       "author": "Snuzzle",
@@ -42,20 +58,20 @@
         "trans": {}
       }
     },
-    "oak_planks": {
-      "category": "Planks",
-      "author": "OliviaTheVampire",
+    "neon_glow": {
+      "category": "Neon",
+      "author": "MCAlexisYT",
       "variants": {
-        "spruce_planks": {},
-        "birch_planks": {},
-        "jungle_planks": {},
-        "acacia_planks": {},
-        "dark_oak_planks": {},
-        "mangrove_planks": {},
-        "cherry_planks": {},
-        "bamboo_planks": {},
-        "crimson_planks": {},
-        "warped_planks": {}
+        "neon": {}
+      }
+    },
+    "midnight": {
+      "author": "Ninjaabdullah"
+    },
+    "mob_vote": {
+      "author": "PopitTart",
+      "variants": {
+        "mob_vote_gold": {}
       }
     }
   },
